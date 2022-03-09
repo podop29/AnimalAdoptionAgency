@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block title%}-New Pet Form-{%endblock%}
+
+{%block content%}
+<span class="center mx-auto"></span>
+<h1>Fill out the form below to add your pet</h1>
+</span>
+
+
+<div class="row">
+<form>
+    {{form.hidden_tag()}}
+    {%for field in form
+    if field.widget.input_type != 'hidden'%}
+    <div class="form-group"></div>
+    <p>
+        {{field.label}}
+        {{field(class_="form-text")}}
+    </p>
+
+    {%endfor%}
+    <button formmethod="post" class="btn btn-outline-success btn-lg" >Submit</button>
+    <button formaction="/" formmethod="get" class="btn btn-outline-success btn-lg" >return</button>
+
+
+
+</form>
+</div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{%block title%}-Stevans Adoption Agency-{%endblock%}
+
+{%block content%}
+<span class="center">
+<h1>Welcome to Stevans Adoption Agency</h1>
+<h2>Please take a look at our pets</h2>
+</span>
+
+
+<span class="mx-auto  bodddy">
+{%for pet in pets%}
+<div class="pet_container">
+    {%if pet.photo_url == ''%}
+    <li  class="pfp" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png" alt="pet photo" width="192px" height="150px">
+     
+    {%else%}
+    
+    <li  class="pfp" ><img src="{{pet.photo_url}}" alt="pet photo" width="192px" height="150px">
+    {%endif%} 
+    {%if pet.avalible%}
+    <p class="text-primary font-weight-bold"><a href="/view/{{pet.id}}">{{pet.name}}</a> is avalible!</p>
+    {%else%}
+    <p class="text-danger font-weight-bold"> <a href="/view/{{pet.id}}">{{pet.name}}</a> is not avalible</p>
+    {%endif%}  
+    </li>
+</div>
+{%endfor%}
+</span>
+
+<form>
+<button formaction="/new-pet" formmethod="get" class="mx-auto d-block btn btn-outline-success">Create New Pet</button>
+</form>
+
+{%endblock%}

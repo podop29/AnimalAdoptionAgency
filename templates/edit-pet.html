@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{%block title%}-Edit {{pet.name}} Form-{%endblock%}
+
+{%block content%}
+<h1>Edit {{pet.name}}</h1>
+
+<div class="row">
+    <form>
+        {{form.hidden_tag()}}
+        {%for field in form
+        if field.widget.input_type != 'hidden'%}
+        <div class="form-group"></div>
+        <p>
+            {{field.label}}
+            {{field(class_="form-text")}}
+        </p>
+    
+        {%endfor%}
+        <button formmethod="post" class="btn btn-outline-success btn-lg" >Save</button>
+        <button formaction="/" formmethod="get" class="btn btn-outline-success btn-lg" >return</button>
+    
+    
+    
+    </form>
+
+
+
+{%endblock%}

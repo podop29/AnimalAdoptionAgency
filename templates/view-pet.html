@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{%block title%}-{{pet.name}} Details-{%endblock%}
+
+{%block content%}
+<span class="center">
+<h1>{{pet.name}} Details</h1>
+
+<p><img src="{{pet.photo_url}}" alt="Pet Photo" width="300px" height="350px"></p>
+<li>Meet {{pet.name}}</li>
+<li>He is {{pet.age}} years old</li>
+<li>Notes: {{pet.notes}}</li>
+</span>
+<form action="">
+    <button formaction="/edit/{{pet.id}}" formmethod="get" >Edit Info</button>
+    <button formaction="/" formmethod="get">Return</button>
+
+</form>
+
+{%endblock%}
